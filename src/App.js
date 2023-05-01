@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Iframe from "react-iframe";
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header">Dashboard</header>
+      <Iframe
+        width="600"
+        height="400"
+        seamless
+        src="http://18.234.97.196:3000/superset/explore/?r=58&standalone=true&height=400"
+      ></Iframe>
     </div>
   );
 }
