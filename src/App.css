@@ -1,6 +1,19 @@
 .App {
   text-align: center;
 }
+/* .App {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+
+iframe {
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 1px solid #ccc; /* adds a border to the Iframe elements */
+  padding: 10px; /* adds padding within the Iframe elements */
+  margin-bottom: 20px;
+}
 
 .App-logo {
   height: 40vmin;
