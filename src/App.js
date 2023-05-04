@@ -1,25 +1,32 @@
-import Iframe from "react-iframe";
-import React from "react";
-import "./App.css";
+import { embedDashboard } from "@superset-ui/embedded-sdk";
+import React, { useEffect } from "react";
 
 function App() {
+  function fetchGuestTokenFromBackend() {
+    fetch("")
+      .then((response) => response.json())
+      .then((data) => data.token);
+  }
+
+  useEffect(() => {
+    embedDashboard({
+      id: "426e0d5a-de9f-4b14-98b0-7bc8c87a7199",
+      supersetDomain: "https://superset.example.com",
+      mountPoint: document.getElementById("dashboard-container"),
+      fetchGuestToken: () => fetchGuestTokenFromBackend(),
+      dashboardUiConfig: {
+        hideTitle: true,
+        filters: {
+          expanded: true,
+        },
+      },
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">Dashboard</header>
-      <Iframe
-        className="iframe-container"
-        width="600"
-        height="400"
-        url="http://18.234.97.196:3000/superset/explore/?r=58&standalone=true&height=400"
-      ></Iframe>
-      <Iframe
-        className="iframe-container"
-        width="600"
-        height="400"
-        frameBorder="0"
-        // scrolling="no"
-        src="http://18.234.97.196:3000/superset/explore/?r=60&standalone=true&height=400"
-      ></Iframe>
+      <div></div>
     </div>
   );
 }
